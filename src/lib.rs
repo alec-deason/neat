@@ -508,15 +508,13 @@ fn maybe_mutate(mut g: Genome) -> Genome {
             }
         }
     }
-    if rng.gen::<f32>() < 0.03 {
+    if rng.gen::<f32>() < 0.003 {
         split_connection(&mut g);
     }
-    /*
     if rng.gen::<f32>() < 0.01 {
         swap_enablement_connection(&mut g);
     }
-    */
-    if rng.gen::<f32>() < 0.05 {
+    if rng.gen::<f32>() < 0.005 {
         add_connection(&mut g);
     }
     g

@@ -14,7 +14,7 @@ fn main() {
     let mut pop = initial_population(150, 1, 1);
     let mut generation = 0;
     let encoding:Vec<_> = "abcdefghijklmnopqrstuvwxyz ".chars().collect();
-    let test = "hello";
+    let test = "glue";
 
     loop {
         let mut fitness = HashMap::new();
