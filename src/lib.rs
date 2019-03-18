@@ -1,6 +1,9 @@
 #![feature(cell_update)]
 extern crate rand;
 extern crate petgraph;
+extern crate serde;
+
+use serde::{Deserialize, Serialize};
 
 use petgraph::Graph;
 use petgraph::dot::{Dot, Config};
@@ -60,6 +63,7 @@ impl fmt::Debug for Genome {
     }
 }
 
+#[derive(Clone, Serialize, Deserialize)]
 pub struct Phenotype {
     nodes: Vec<f32>,
     bias_node: usize,
@@ -370,7 +374,7 @@ fn speciate(
     type_genomes: &Vec<(usize, f32, Genome)>,
     mut genomes: Vec<Genome>,
 ) -> Vec<(usize, f32, Vec<Genome>)> {
-    let threshold = 3.0;
+    let threshold = 0.5;
     let mut type_genomes = type_genomes.clone();
     let mut species: Vec<(usize, f32, Vec<Genome>)> = type_genomes
         .iter()
